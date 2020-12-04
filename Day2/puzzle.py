@@ -1,5 +1,3 @@
-import numpy as np
-
 """
 Puzzle 1:
 They have created a list (your puzzle input) of passwords (according to the corrupted database) and the corporate policy when that password was set.
