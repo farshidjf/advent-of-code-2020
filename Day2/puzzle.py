@@ -39,8 +39,6 @@ def evaluate_file(file_content, is_valid):
     return len([1 for line in file_content.splitlines() if is_valid(line)])
 
 if __name__ == "__main__":
-  total = 2020
-  
   with open('./Day2/small_input') as small_file:
     content = small_file.read();
     num_valid1 = evaluate_file(content, is_valid1)
