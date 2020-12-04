@@ -9,16 +9,16 @@ def puzzle1(list, total):
   return 0
   
 def read_from_file(file):
-  return [int(x) for small_file.read().splitlines()]
+  return [int(x) for x in file.read().splitlines()]
 
 if __name__ == "__main__":
   total = 2020
   
-  with open(./small_input) as small_file:
+  with open('./Day1/small_input') as small_file:
     list = read_from_file(small_file)
     print("small input: ", puzzle1(list, total))
 
-  with open(./large_input) as large_file:
+  with open('./Day1/large_input') as large_file:
     list = read_from_file(large_file)
     print("small input: ", puzzle1(list, total))
     
