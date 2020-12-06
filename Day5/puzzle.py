@@ -16,7 +16,6 @@ def find_missing_ID(IDs):
         missing_IDs[id-first] = True
     return missing_IDs.index(False)+first
 
-
 file_name = "large_input"
 folder_name = "./Day5/"
 with open(folder_name + file_name) as file:
