@@ -2,7 +2,7 @@ import numpy as np
 
 """
 Puzzle 1:
-Specifically, they need you to find the two entries that sum to 2020 and then multiply those two numbers together.
+Find the two entries that sum to 2020 and then multiply those two numbers together.
 
 Puzzle 2:
 Find three numbers in your expense report that meet the same criteria and then multiply those three numbers together.
@@ -37,7 +37,7 @@ if __name__ == "__main__":
 
   with open('./Day1/large_input') as large_file:
     list = read_from_file(large_file)
-    print("Puzzle 1 - small input: ", puzzle1(list, total))
-    print("Puzzle 2 - small input: ", puzzle2(list, total))
+    print("Puzzle 1 - large input: ", puzzle1(list, total))
+    print("Puzzle 2 - large input: ", puzzle2(list, total))
     
   
