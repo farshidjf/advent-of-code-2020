@@ -6,8 +6,8 @@ def get_bag_structure(input):
         if num.isnumeric():
             return (bag, int(num))
         return ('',0)
-    keys = [re.split(r' bag\.| bags\.',line)[0].split(" bags contain ")[0] for line in input.splitlines()]
-    values = [list(map(split_to_tuple, re.split(r" bag, | bags, ",re.split(r' bag\.| bags\.',line)[0].split(" bags contain ")[1]))) for line in input.splitlines()]
+    keys = [re.split(r' bags?\.',line)[0].split(" bags contain ")[0] for line in input.splitlines()]
+    values = [list(map(split_to_tuple, re.split(r" bags?, ",re.split(r' bags?\.',line)[0].split(" bags contain ")[1]))) for line in input.splitlines()]
     return {key: value for key, value in zip(keys, values)}
 
 def set_of_outer_bags(bag, bag_struct):
