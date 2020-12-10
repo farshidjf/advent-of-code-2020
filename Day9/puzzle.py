@@ -17,7 +17,7 @@ def find_first_violation(seq, preamble_size):
     
 def find_contiguous_set(seq, key):
     for i in range(len(seq)):
-        for delta_i in range(len(seq)-i):
+        for delta_i in range(2, len(seq)-i):
             if sum(seq[i:i+delta_i]) == key:
                 return min(seq[i:i+delta_i]) + max(seq[i:i+delta_i])
     return 0
@@ -30,4 +30,4 @@ for file_name in file_names:
         seq = [int(line) for line in input_file.readlines()]
         key = find_first_violation(seq, preamble_size)
         print(F'Puzzle 1 - {file_name}: ', key)
-        print(F'Puzzle 2 - {file_name}: ', find_contiguous_set(seq,key))
+        print(F'Puzzle 2 - {file_name}: ', find_contiguous_set(seq, key))
