@@ -14,7 +14,7 @@ def count_arrangements(adaptors):
 
 def puzzle1(adaptors):
     diffs = [x - y for x, y in zip(adaptors[1:], adaptors[:-1])]
-    return diffs.count(1) * (diffs.count(3) + 1)
+    return diffs.count(1) * diffs.count(3)
 
 file_names = ['small_input', 'large_input']
 folder_name = './Day10/'
