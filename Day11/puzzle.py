@@ -57,6 +57,7 @@ class WaitingRoom:
         while self.state != state:    
             self.state = state
             state = self.update_step()
+        return self.count_occupied_seats()
     
     def count_occupied_seats(self):
         return sum([1 for row in range(self.nr)
@@ -68,8 +69,6 @@ for file_name in file_names:
     with open(folder_name+file_name) as input_file:
         data = input_file.read()
         room1 = WaitingRoom(data, puzzle=1)
-        room1.run()
-        print(F'Puzzle 1 - {file_name}: ', room1.count_occupied_seats())
+        print(F'Puzzle 1 - {file_name}: ', room1.run())
         room2 = WaitingRoom(data, puzzle=2)
-        room2.run()
-        print(F'Puzzle 2 - {file_name}: ', room2.count_occupied_seats())
+        print(F'Puzzle 2 - {file_name}: ', room2.run())
