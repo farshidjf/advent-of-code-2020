@@ -61,5 +61,6 @@
         "vector": "cpp",
         "*.tcc": "cpp",
         "hashtable": "cpp"
-    }
+    },
+    "python.pythonPath": "/anaconda3/envs/py39/bin/python"
 }
