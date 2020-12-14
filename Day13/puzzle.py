@@ -64,7 +64,6 @@ def puzzle2_attempt2(bus_IDs):  # without CRT
     return n
     
 
-
 file_names = ['small_input', 'large_input']
 folder_name = './Day13/'
 for file_name in file_names:
