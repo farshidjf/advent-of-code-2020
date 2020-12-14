@@ -33,8 +33,6 @@ def puzzle2_using_CRT(bus_IDs): # first attempt
     assert all((n+i) % id == 0 for i, id in bus_IDs.items()) # lol, making sure the algorithm works
     
     return n % list_lcm(bus_IDs.values())
-    # if all((n+i) % id == 0 for i, id in bus_IDs.items()): 
-    #     return n
 
 def puzzle2_attempt2(bus_IDs):  # without CRT
     def solve_for_two(X1, r1, X2, r2): 
