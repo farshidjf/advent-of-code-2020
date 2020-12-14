@@ -1,4 +1,3 @@
-
 import re
 
 def apply_mask1(mask, number):  # puzzle 1
