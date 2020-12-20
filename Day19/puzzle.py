@@ -14,7 +14,7 @@ def get_rules(rules_str):
             rules[int(m.groups()[0])] = {m.groups()[1]}
     return rules
 
-def is_resolve(rule):
+def is_resolved(rule):
     return all(isinstance(r, str) for r in rule)
 
 def substitute(key, rule1, rule2):
@@ -28,7 +28,7 @@ def substitute(key, rule1, rule2):
         return {rule2}
         
 def join(rule):
-    if is_resolve(rule):
+    if is_resolved(rule):
         return "".join(rule)
     else: return rule
 
@@ -37,7 +37,7 @@ def resolve(rules):
     resolving = {}
     unresolved_rules = deepcopy(rules)
     for key, rule in rules.items():
-        if is_resolve(rule):
+        if is_resolved(rule):
             resolving[key] = rule
             unresolved_rules.pop(key)
 
@@ -50,7 +50,7 @@ def resolve(rules):
         resolving = {}
         
         for key in list(unresolved_rules.keys()):
-            if is_resolve(unresolved_rules[key]):
+            if is_resolved(unresolved_rules[key]):
                 resolving[key] = unresolved_rules[key]
                 unresolved_rules.pop(key)
 
