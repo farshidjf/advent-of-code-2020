@@ -34,32 +34,32 @@ def join(rule):
 
 def resolve(rules):
     resolved_rules = {}
-    resolving = {}
+    resolving_rules = {}
     unresolved_rules = deepcopy(rules)
     for key, rule in rules.items():
         if is_resolved(rule):
-            resolving[key] = rule
+            resolving_rules[key] = rule
             unresolved_rules.pop(key)
 
     while 0 in unresolved_rules:
-        for key1, rule1 in resolving.items():
+        for key1, rule1 in resolving_rules.items():
             for key2 in unresolved_rules.keys():
                 unresolved_rules[key2] = set().union(*(substitute(key1, rule1, rule) for rule in unresolved_rules[key2]))                
                 unresolved_rules[key2] = {join(rule) for rule in unresolved_rules[key2]}
             resolved_rules[key1] = rule1
-        resolving = {}
+        resolving_rules = {}
         
         for key in list(unresolved_rules.keys()):
             if is_resolved(unresolved_rules[key]):
-                resolving[key] = unresolved_rules[key]
+                resolving_rules[key] = unresolved_rules[key]
                 unresolved_rules.pop(key)
 
-    resolved_rules.update(resolving)
+    resolved_rules.update(resolving_rules)
     return resolved_rules
 
-def match_puzzle2(r42, r31, message): 
+def match_puzzle2(message, r42, r31): 
     # 0 = 8 11 = (42) (42+) (31+) (with number of repeats in 42+ should be at least equal to that of 31+)
-    # all strings matching in rules 42 and 31 have length 8
+    # all strings matching rules 42 and 31 have length 8
     if len(message) % 8 != 0: return False
     n = len(message) // 8
     i = 0
@@ -78,7 +78,7 @@ def puzzle1(messages, r0):
     return sum(1 for message in messages if message in r0)
 
 def puzzle2(messages, r42, r31):
-    return sum(1 for message in messages if match_puzzle2(r42, r31, message))
+    return sum(1 for message in messages if match_puzzle2(message, r42, r31))
 
 file_name = 'large_input'
 folder_name = './Day19/'
