@@ -48,7 +48,7 @@ def adjust(id, i1, i2, flip):   # rotate tiles[id] to match its i2 side with i1 
 
 def find_match(id, i):      # find a tile matching side i of tiles[id] if exist
     for id2 in list(tiles.keys()):
-        if id2 != id and not id2 in neighbors[id]: #not id2 in connected:
+        if id2 != id and not id2 in neighbors[id]:
             for i2 in range(4):
                 if (flip := match(id, id2, i, i2)) != 0:
                     return id2, i2, flip
